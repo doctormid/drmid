@@ -1,0 +1,103 @@
+import 'package:drmid/entity/doctor.dart';
+import 'package:drmid/extensions/extensions.dart';
+import 'package:drmid/l10n/gen/app_localizations.dart';
+import 'package:drmid/tools/common_widgets.dart';
+import 'package:drmid/tools/res_colors.dart';
+import 'package:drmid/tools/screen_tools.dart';
+import 'package:drmid/tools/text_style.dart';
+import 'package:drmid/views/home/doctor_profile_page.dart';
+import 'package:flutter/material.dart';
+
+class Dashboard extends StatefulWidget {
+  const Dashboard({Key? key}) : super(key: key);
+
+  @override
+  _DashboardState createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  List<Doctor> doctors = [
+    Doctor('Manuel Macias', 'implantology', 'images/doctor2.png'),
+    Doctor('Roberto Delgadillo', 'Neurologist', 'images/doctor.jpeg')
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            appBar(AppLocalizations.of(context)!.profile ?? 'text', context),
+            Divider(color: ResColors.dividerColor),
+            searchBar(AppLocalizations.of(context)!.search),
+            Expanded(
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(40), topLeft: Radius.circular(40)),
+                child: Container(
+                  width: double.infinity,
+                  decoration: const BoxDecoration(color: Colors.white),
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.only(top: 30, bottom: 20, left: 10, right: 10),
+                    itemCount: doctors.length,
+                    itemBuilder: (context, index) => MaterialButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (ctx) => const DoctorProfilePage()));
+                      },
+                      elevation: 10,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          side: BorderSide(color: ResColors.dividerColor)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 10),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.asset(
+                              doctors[index].imagePath,
+                              width: double.infinity,
+                              height: screenWidth(context, dividedBy: 3),
+                            ),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(doctors[index].name, style: mainStyle),
+                          const SizedBox(height: 5),
+                          Row(
+                            children: [
+                              Text(doctors[index].job, style: hintStyle),
+                              const Spacer(),
+                              MaterialButton(
+                                onPressed: () {},
+                                padding: EdgeInsets.zero,
+                                height: 20,
+                                minWidth: 50,
+                                elevation: 0,
+                                color: ResColors.primaryColor,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12)),
+                                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                child: Text(
+                                  AppLocalizations.of(context)!.add,
+                                  style: mainStyle.copyWith(color: Colors.white, fontSize: 12),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ).viewPadding(left: 5, right: 5, top: 5, bottom: 5),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2, childAspectRatio: 1 / 1.15),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

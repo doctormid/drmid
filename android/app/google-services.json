@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "390108250565",
+    "project_id": "doc-appointment-aa751",
+    "storage_bucket": "doc-appointment-aa751.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390108250565:android:0f43022909a51422358bac",
+        "android_client_info": {
+          "package_name": "com.testappointment.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390108250565-18ht98166bnpa2f5po2o6os1k5upmbpb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlLCzFmZeRLQsqqlKZoHzAwBRB7kqAeI8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390108250565-18ht98166bnpa2f5po2o6os1k5upmbpb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "390108250565-qfpepkfubpe4gs3qocrdcqtib0slu16m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.testappointment.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
