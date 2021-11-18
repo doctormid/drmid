@@ -1,6 +1,5 @@
 import 'package:drmid/helpers/app_helper.dart';
 import 'package:drmid/helpers/auth_helper.dart';
-import 'package:drmid/homepage.dart';
 import 'package:drmid/l10n/gen/app_localizations.dart';
 import 'package:drmid/utils/MenuController.dart';
 import 'package:drmid/utils/constants.dart';
@@ -19,7 +18,7 @@ abstract class WidgetFactory {
     app = MaterialApp(
       debugShowCheckedModeBanner: false,
       title: AppHelper.appName,
-      home: AuthHelper.instance().isAnonymous() ? const Auth() : const Dashboard(),
+      home: AuthHelper.instance().isAnonymous() ? const Auth() : Dashboard(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColor: Colors.white,

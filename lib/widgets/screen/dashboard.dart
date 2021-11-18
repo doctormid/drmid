@@ -5,7 +5,9 @@ import 'package:drmid/tools/common_widgets.dart';
 import 'package:drmid/tools/res_colors.dart';
 import 'package:drmid/tools/screen_tools.dart';
 import 'package:drmid/tools/text_style.dart';
+import 'package:drmid/utils/responsive.dart';
 import 'package:drmid/views/home/doctor_profile_page.dart';
+import 'package:drmid/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
@@ -24,10 +26,12 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: (Responsive.isDesktop(context)) ? null : SideMenu(),
       body: SafeArea(
         child: Column(
           children: [
-            appBar(AppLocalizations.of(context)!.profile ?? 'text', context),
+            if (Responsive.isDesktop(context)) Expanded(child: SideMenu()),
+            appBar(AppLocalizations.of(context)!.profile, context),
             Divider(color: ResColors.dividerColor),
             searchBar(AppLocalizations.of(context)!.search),
             Expanded(
