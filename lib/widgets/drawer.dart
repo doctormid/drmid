@@ -1,5 +1,4 @@
 import 'package:drmid/helpers/ui_helper.dart';
-import 'package:drmid/widgets/dashboard.dart';
 import 'package:drmid/widgets/my_agenda.dart';
 import 'package:drmid/widgets/search_doctors.dart';
 import 'package:flutter/material.dart';
