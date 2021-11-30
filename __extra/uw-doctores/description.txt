@@ -1,0 +1,10 @@
+Summary
+This project consists in the codification of given screen design in source file. It is required to be accurate to design. No functionality is required at this project: only widget code with all the tap actions are onTap: print("item clicked").
+Deliverables
+A Flutter app with a simple grid or listing initial menu from where to launch each of the given screens implementing i18n and using as few external dependencies as possible, UI should be based on Material package and included flutter packages. No complex transition effects are required either.
+
+Requirements
+-Flutter 2.x
+-Null Safety
+-i18n implemented
+-Clean code
