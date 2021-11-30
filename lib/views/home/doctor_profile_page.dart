@@ -152,7 +152,8 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
                               onPressed: () {},
                               elevation: 0,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12)),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
                               child: Text(
                                 AppLocalizations.of(context)!.seeMore,
                                 style: mainStyle.copyWith(
